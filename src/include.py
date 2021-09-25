@@ -1,6 +1,5 @@
 from datetime import datetime
 from typing import *
-from typing.io import *
 
 STORAGE_LOCATION = "test/"
 
@@ -35,9 +34,13 @@ INSERT_RECORD = """
 """
 
 # Query student by ID
-QUERY_STUDENT_ID = """
+QUERY_STUDENT = """
     SELECT * FROM students
     WHERE   id = ?;
+"""
+# Query all students
+QUERY_STUDENT_ALL = """
+    SELECT * FROM students;
 """
 # Query all passes printed for student between two datetimes. To get all records, pass in 0 and "datetime('now')"
 QUERY_RECORDS_STUDENT = """
@@ -45,10 +48,10 @@ QUERY_RECORDS_STUDENT = """
     WHERE   student_id = ?
     AND     time BETWEEN ? AND ?;
 """
-# Query all passes between two datetimes. To get all records, pass in 0 and "datetime('now')"
+# Query all passes between two datetimes. To get all records, pass in 0 and "strftime('%s', 'now')"
 QUERY_RECORDS_ALL = """
     SELECT * FROM records
-    WHERE   time BETWEEN ? AND ?;
+    AND     time BETWEEN ? AND ?;
 """
 
 

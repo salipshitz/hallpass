@@ -46,7 +46,7 @@ def query(conn: sqlite3.Connection, sql: str, *args: object) -> List:
         cursor.execute(sql, args)
         return cursor.fetchall()
     except sqlite3.Error as e:
-        log("Error executing SQL query: {}.", e)
+        log("Error executing SQL query {}.", e)
         return []
 
 
@@ -57,6 +57,7 @@ def commit(conn: sqlite3.Connection):
         conn.commit()
     except sqlite3.Error as e:
         log("Error committing to SQL database: {}.", e)
+
 
 def test_database():
     """Tests the SQLite database"""

@@ -1,0 +1,12 @@
+.vscode
+
+bin
+include
+lib
+lib64
+share
+test
+
+*.cfg
+*.pyo
+*.pyc
